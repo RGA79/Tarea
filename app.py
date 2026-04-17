@@ -86,6 +86,10 @@ def not_found(e):
 def method_not_allowed(e):
     return jsonify({"error": "Método HTTP no permitido en este endpoint"}), 405
 
+@app.errorhandler(500)
+def internal_error(e):
+    return jsonify({"error": "Error interno del servidor"}), 500
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     app.run(debug=False, host="0.0.0.0", port=port)
