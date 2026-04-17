@@ -74,7 +74,7 @@ def predict():
         return jsonify({"error": str(e)}), 500
 
     return jsonify({
-        "predicted_price_usd": round(price, 2),
+        "predicted_value": round(price, 2),
         "note": "Estimación basada en dataset California Housing (20,640 registros).",
     })
 
